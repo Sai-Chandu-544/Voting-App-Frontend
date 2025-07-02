@@ -48,7 +48,7 @@ export const AdminLoginForm = () => {
     //   console.log("Response:", data);
 
       if (response.ok) {
-        alert(data.message || "Login Successful");
+        alert(data.message || "Login Successfull");
          localStorage.setItem("Admin Token",data.token)
       
         

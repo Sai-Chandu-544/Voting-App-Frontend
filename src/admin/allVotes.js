@@ -23,7 +23,7 @@ export const AllVotes = () => {
         console.log("Fetched Data:", result);
 
         if (response.ok) {
-          setAllVotes([result]);
+          setAllVotes(result);
           
           setLoading(false);
         } else {
@@ -53,11 +53,11 @@ export const AllVotes = () => {
         </div>
       ) : (
         <div className="votes-container">
-          {allVotes
-            .map((vote, index) => (
+          {
+            allVotes.map((vote, index) => (
               <div className="vote-card" key={index}>
-                <h2><strong>{vote.candidate.name}</strong></h2>
-                <p><strong>Party:</strong> {vote.candidate.party}</p>
+                <h2>Candidate Name:<strong>{vote.candidate.name}</strong></h2>
+                <p><strong>Dept:</strong> {vote.candidate.party}</p>
                 <p><strong>Votes:</strong> {vote.candidate.votesLength}</p>
               </div>
             ))}

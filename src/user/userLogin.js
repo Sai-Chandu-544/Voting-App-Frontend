@@ -50,7 +50,7 @@ export const LoginForm = () => {
       // console.log("Response:", data);
 
       if (response.ok) {
-        alert(data.message || "Login Successful");
+        alert(data.message || "Login Successfull");
         login(data.token,data.user._id,data.user.name);
         // console.log(data.user.name)
         // localStorage.setItem("Token",data.token)
