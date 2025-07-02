@@ -49,7 +49,7 @@ try{
   if(response.status===401){
     alert(data.message || "You Already Casted Your Vote!")
   }else if(response.status===200){
-    alert( "Your Vote has benn Casted  Successfully")
+    alert( "Your Vote has been Casted  Successfully")
     setHasVoted(candidateId)
   }
   else{
