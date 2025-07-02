@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import {RegistrationForm} from './user/userRegister'
+import {LoginForm} from './user/userLogin'
+import {Data} from './data/data'
+import { HomePage } from  './homePage';
+import {AdminLoginForm} from './admin/adminLogin.js'
+import {AdminRegisterForm} from './admin/adminRegister.js'
+import {AllVotes} from './admin/allVotes.js'
+import {Routes,Route} from "react-router-dom"
+import {UserProvider} from './user/context.js'
+import { AuthProvider } from './auth.js';
+import { PrivateRoute } from './privateRoutes.js';
+import { PageNotFound } from './PageNotFound.js';
 
-function App() {
+
+
+
+
+export const App=()=> {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+<>
+<AuthProvider>
+<UserProvider>
+ <Routes>
+  <Route path="/" element={<HomePage/>}/>
+  <Route path="user/login" element={<LoginForm/>}/>
+  <Route path="user/register" element={<RegistrationForm/>}/>
+  <Route path="user/data" element={<PrivateRoute><Data/></PrivateRoute>}/>
+  <Route path="admin/login" element={<AdminLoginForm/>}/>
+  <Route path="admin/register" element={<AdminRegisterForm/>}/>
+  <Route path="admin/allVotes" element={<AllVotes/>}/>
+  <Route path="*" element={<PageNotFound/>}/>
+
+   
+             
+</Routes>
+    
+    </UserProvider>
+    </AuthProvider>
+
+</>
+    
+     
+      
+   
   );
 }
 
-export default App;
