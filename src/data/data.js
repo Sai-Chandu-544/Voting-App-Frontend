@@ -24,9 +24,9 @@ const handleVote= async(candidateId)=>{
 
 
   
-  // console.log(id)
+  // console.log(candidateId)
 try{
-   const userId=localStorage.getItem("userId")
+  const userId = JSON.parse(localStorage.getItem("UserId"));
   const token=localStorage.getItem("Token")
   // console.log("userId",userId)
   // console.log("The Token is ",token)
@@ -97,6 +97,10 @@ try{
 
     fetchList();
   }, []);
+ 
+
+
+
 
   return (
   <>
@@ -139,6 +143,7 @@ try{
       </div>
       ):(
         <>
+        
         <div className="list-main-container">
     <div className="second-container">
       <ul>
@@ -151,7 +156,7 @@ try{
 
               <div className="middle">
                 <h2>Name: <span>{el.name}</span></h2>
-                <h2>Party: <span>{el.party}</span></h2>
+                <h2>Dept: <span>{el.party}</span></h2>
                 <h2>Age: <span>{el.age}</span></h2>
               </div>
 

@@ -1,8 +1,14 @@
 import voting_image from './images/voting_image.png'
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 
 export const HomePage = () => {
+  const navigate=useNavigate()
+
+  const handleGetStarted=()=>{
+    navigate("/user/data")
+  }
   return (
   <div className="main-conatiner">
      <div className="home-page">
@@ -26,7 +32,7 @@ export const HomePage = () => {
             <p> Easy Voting</p>
 
         </div>
-        <button className="hero-btn">Get Started</button>
+        <button className="hero-btn" onClick={handleGetStarted}>Get Started</button>
 
         
       </main>

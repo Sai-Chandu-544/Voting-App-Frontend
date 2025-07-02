@@ -51,7 +51,8 @@ export const LoginForm = () => {
 
       if (response.ok) {
         alert(data.message || "Login Successful");
-        login(data.token,data.user);
+        login(data.token,data.user._id,data.user.name);
+        // console.log(data.user.name)
         // localStorage.setItem("Token",data.token)
         // localStorage.setItem("userId",data.user._id)
         setName(data.user.name)
